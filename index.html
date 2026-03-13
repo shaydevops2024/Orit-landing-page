@@ -1,3 +1,94 @@
+
+
+<!DOCTYPE html> <html lang="he" dir="rtl"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>סאל מקורות מימון | מבית בראון</title> <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Lib
+
+pasted
+
+I have this website:
+
+I want to add and remove a few things:
+
+I want to remove the emojis from the 4 buttons:
+שכיר
+עצמאי
+גמלאי
+חברה בע"מ
+
+I want to add on the top right the word:
+בס"ד
+
+put the word as is as I wrote it.
+
+On the mobile broser, the phone numbers and emails are like urls (set in blue). please make it black/wirte (the better as UI UX)
+Show more
+11:21 AM
+
+Check skills directory
+Check skills directory
+Three quick edits:
+
+
+Ran 2 commands
+Ran 2 commands
+I'll work directly from the document content in context. Let me apply all three changes:
+
+
+Created a file, read a file
+Created a file, read a file
+שלושת השינויים בוצעו:
+
+אמוג'ים הוסרו מכפתורי הטאבים — שכיר / גמלאי / עצמאי / חברה בע"מ, ללא שינוי בסגנון.
+בס"ד מופיע בפינה הימנית העליונה בצבע זהב, fixed כך שיישאר גלוי בעת גלילה.
+צבע הטלפונים והאימייל במובייל — הפתרון: במובייל הכרטיסים נוצרים עם תג <a> אמיתי (לחיוג ישיר), אך עם color: inherit ו--webkit-text-fill-color: inherit כדי לבטל את הצביעה הכחולה האוטומטית של הדפדפן. בדסקטופ נשמר הלוגיק של copy-to-clipboard.
+Sal
+Code · HTML 
+this is the logo I want to add to the website:
+add it please and show me the results.
+
+make sure the background doesn't break the landing page
+
+11:32 AM
+
+Ran 2 commands
+Ran 2 commands
+Now I'll embed the logo as base64 into the HTML. The logo has a light/grey background, so I'll use mix-blend-mode to make it blend naturally with the dark navy hero:
+
+
+Ran 2 commands
+Ran 2 commands
+The logo has a light background so mix-blend-mode: multiply alone won't work on a dark page — let me use the better approach: invert+brightness filter to make it appear as a clean white/gold logo:
+
+
+Ran a command, read a file
+Ran a command, read a file
+הלוגו נוסף לדף! הנה מה שעשיתי:
+
+הלוגו מוצב ב-Hero מעל ה-badge ושם החברה, ממורכז.
+mix-blend-mode: screen — זה מבטל את הרקע הלבן/אפור של הלוגו על גבי הרקע הנייבי הכהה, כך שרואים רק את צורת הציפור והטקסט בלי ריבוע לבן שבור את העיצוב.
+drop-shadow — מוסיף הילה זהבהבה עדינה שמשתלבת עם פלטת הצבעים.
+אם הלוגו נראה כהה מדי או בהיר מדי בדפדפן שלך — אפשר לכוונן. גם ניתן להוסיף אותו לפינה כ-header קבוע אם תרצה.
+
+Sal
+Code · HTML 
+This is the logo I want. please change it. and make it a bit bigger.
+
+11:35 AM
+
+Ran 2 commands, read a file
+Ran 2 commands, read a file
+עודכן! הלוגו הוחלף לתמונה החדשה והוגדל ל-180px. ה-mix-blend-mode: screen ממשיך לעבוד כך שהרקע האפור של הלוגו נעלם על גבי הנייבי הכהה של הדף.
+
+Sal
+Code · HTML 
+
+
+
+
+
+Claude is AI and can make mistakes. Please double-check responses.
+Sal · HTML
+Copy
+
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -18,9 +109,9 @@
     --text-light: #F0EAE0;
     --text-muted: #A09880;
   }
-
+ 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
+ 
   body {
     font-family: 'Heebo', sans-serif;
     background: var(--navy);
@@ -28,7 +119,22 @@
     overflow-x: hidden;
     direction: rtl;
   }
-
+ 
+  /* ── BSD CORNER ── */
+  .bsd-corner {
+    position: fixed;
+    top: 16px;
+    right: 20px;
+    z-index: 1000;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    opacity: 0.85;
+    pointer-events: none;
+  }
+ 
   /* ── HERO ── */
   .hero {
     position: relative;
@@ -41,7 +147,7 @@
     padding: 60px 20px;
     overflow: hidden;
   }
-
+ 
   .hero::before {
     content: '';
     position: absolute;
@@ -52,7 +158,7 @@
       linear-gradient(160deg, #0D1B2A 0%, #1A2F45 50%, #0D1B2A 100%);
     z-index: 0;
   }
-
+ 
   .hero-grid {
     position: absolute;
     inset: 0;
@@ -62,9 +168,9 @@
     background-size: 60px 60px;
     z-index: 0;
   }
-
+ 
   .hero-content { position: relative; z-index: 1; max-width: 800px; }
-
+ 
   .badge {
     display: inline-block;
     background: linear-gradient(135deg, rgba(200,168,90,0.2), rgba(200,168,90,0.05));
@@ -78,7 +184,7 @@
     margin-bottom: 28px;
     animation: fadeDown 0.8s ease both;
   }
-
+ 
   .hero h1 {
     font-family: 'Frank Ruhl Libre', serif;
     font-size: clamp(2.4rem, 6vw, 4.5rem);
@@ -88,14 +194,14 @@
     margin-bottom: 16px;
     animation: fadeDown 0.9s ease 0.1s both;
   }
-
+ 
   .hero h1 span {
     background: linear-gradient(135deg, var(--gold), var(--gold-light));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
+ 
   .hero-sub {
     font-size: clamp(1rem, 2.5vw, 1.25rem);
     font-weight: 300;
@@ -105,7 +211,7 @@
     line-height: 1.8;
     animation: fadeDown 1s ease 0.2s both;
   }
-
+ 
   .hero-cta {
     display: flex;
     gap: 16px;
@@ -113,7 +219,7 @@
     flex-wrap: wrap;
     animation: fadeDown 1.1s ease 0.3s both;
   }
-
+ 
   .btn-primary {
     background: linear-gradient(135deg, var(--gold), var(--gold-dark));
     color: var(--navy);
@@ -129,7 +235,7 @@
     box-shadow: 0 4px 20px rgba(200,168,90,0.35);
   }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,168,90,0.5); }
-
+ 
   .btn-outline {
     background: transparent;
     color: var(--gold-light);
@@ -144,7 +250,7 @@
     transition: background 0.2s, border-color 0.2s;
   }
   .btn-outline:hover { background: rgba(200,168,90,0.1); border-color: var(--gold); }
-
+ 
   /* ── STATS BAR ── */
   .stats-bar {
     background: linear-gradient(90deg, var(--navy-mid), var(--navy-light), var(--navy-mid));
@@ -174,11 +280,11 @@
     color: var(--text-muted);
     letter-spacing: 0.03em;
   }
-
+ 
   /* ── SECTION ── */
   section { padding: 90px 20px; }
   .container { max-width: 1000px; margin: 0 auto; }
-
+ 
   .section-label {
     display: inline-block;
     font-size: 0.78rem;
@@ -202,7 +308,7 @@
     line-height: 1.9;
     max-width: 600px;
   }
-
+ 
   /* ── FEATURES ── */
   .features-grid {
     display: grid;
@@ -252,7 +358,7 @@
     color: var(--text-muted);
     line-height: 1.75;
   }
-
+ 
   /* ── DOCUMENTS ── */
   .docs-section {
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 50%, var(--navy) 100%);
@@ -267,7 +373,7 @@
     background: radial-gradient(circle, rgba(200,168,90,0.07), transparent 70%);
     pointer-events: none;
   }
-
+ 
   .tabs {
     display: flex;
     gap: 8px;
@@ -297,10 +403,10 @@
     border-color: var(--gold);
     color: var(--gold-light);
   }
-
+ 
   .doc-panel { display: none; }
   .doc-panel.active { display: block; }
-
+ 
   .doc-list {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(200,168,90,0.15);
@@ -328,7 +434,7 @@
     color: var(--text-light);
     line-height: 1.5;
   }
-
+ 
   /* ── TERMS ── */
   .terms-grid {
     display: grid;
@@ -355,7 +461,7 @@
     color: var(--text-muted);
     font-weight: 400;
   }
-
+ 
   /* ── DISCLAIMER ── */
   .disclaimer {
     background: rgba(200,168,90,0.05);
@@ -368,7 +474,7 @@
     line-height: 1.8;
   }
   .disclaimer strong { color: var(--gold-light); }
-
+ 
   /* ── CONTACT ── */
   .contact-section { background: var(--navy-mid); border-top: 1px solid rgba(200,168,90,0.15); }
   .contact-grid {
@@ -388,6 +494,8 @@
     transition: border-color 0.2s, transform 0.2s;
     text-decoration: none;
     color: inherit;
+    /* Fix mobile link coloring */
+    -webkit-text-fill-color: inherit;
   }
   .contact-card:hover { border-color: var(--gold); transform: translateY(-2px); }
   .contact-icon {
@@ -400,8 +508,31 @@
     flex-shrink: 0;
   }
   .contact-label { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px; }
-  .contact-value { font-size: 1rem; font-weight: 600; color: var(--cream); }
-
+  .contact-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--cream);
+    /* Override any browser auto-link styling */
+    text-decoration: none !important;
+    -webkit-text-fill-color: var(--cream) !important;
+  }
+ 
+  /* Force override mobile browser link styles on tel/mailto */
+  a.contact-card,
+  a.contact-card:link,
+  a.contact-card:visited,
+  a.contact-card:active {
+    color: inherit;
+    -webkit-text-fill-color: inherit;
+    text-decoration: none;
+  }
+  a.contact-card .contact-value,
+  a.contact-card:link .contact-value,
+  a.contact-card:visited .contact-value {
+    color: var(--cream) !important;
+    -webkit-text-fill-color: var(--cream) !important;
+  }
+ 
   /* ── FOOTER ── */
   footer {
     text-align: center;
@@ -411,7 +542,7 @@
     color: var(--text-muted);
   }
   footer span { color: var(--gold); }
-
+ 
   /* ── DIVIDER ── */
   .gold-divider {
     width: 60px;
@@ -420,13 +551,29 @@
     margin: 20px 0 36px;
     border-radius: 2px;
   }
-
+ 
   /* ── ANIMATIONS ── */
+ 
+  /* ── LOGO ── */
+  .site-logo {
+    display: block;
+    width: 180px;
+    height: auto;
+    /* lighten: removes white/grey bg on dark navy, keeps the blue brand mark */
+    mix-blend-mode: screen;
+    filter: drop-shadow(0 2px 12px rgba(200,168,90,0.2));
+    margin: 0 auto 28px;
+  }
+ 
+  @media (max-width: 480px) {
+    .site-logo { width: 100px; margin-bottom: 18px; }
+  }
+ 
   @keyframes fadeDown {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
+ 
   .contact-card { cursor: pointer; }
   .hint-label {
     font-size: 0.72rem;
@@ -455,7 +602,7 @@
     opacity: 1;
     transform: translateX(-50%) translateY(0);
   }
-
+ 
   @media (max-width: 768px) {
     section { padding: 60px 16px; }
     .hero { padding: 80px 16px 60px; }
@@ -469,7 +616,7 @@
     .tabs { gap: 6px; }
     .tab { font-size: 0.82rem; padding: 9px 14px; }
   }
-
+ 
   @media (max-width: 480px) {
     .hero h1 { font-size: 1.85rem; }
     .hero-sub { font-size: 0.95rem; }
@@ -486,11 +633,15 @@
 </style>
 </head>
 <body>
-
+ 
+<!-- בס"ד CORNER -->
+<div class="bsd-corner">בס"ד</div>
+ 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="hero-content">
+    <img src="data:image/jpeg;base64,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AIWAAAgAeYKEABAQAvVy9R07dW2AAAAAAAAAAAAIAAAAABAAAAgAPMFIACAgIGfUHTsIAAAAAAAAAAAAQAAAAIAAABAAA//EAAL/2gAMAwEAAgADAAAAIQAAFPAAAEPPPPDDDAAAAIMIENOPPAAHPAABPOAAAAIIMMMMMPLPLDDDDAAEIAEPPAAHPKAAAAAAAABKAAAEEMPPPNPAAAAFPAHPPAADCABAAAFKAAAAAAAAAABCAAAAAAFPPPDPPPPPBBFPDAAAAAAgggAFAAAAAAFPPPPPPPMkghlLIJIgggggnvLDCAAAAAEPPOINPOggmrAAEHGAgggvrjgkNCAAAAFPPAANPIggoPLCG2+ABggtvvvkpLCAAANPPAAPvoiiAPNeaEDkHvvvvvugjPPLDAHKAAFvvvvAAE86cTUPNvvvvvmgkoJNPDOAAAHvvovAAAQz/eMJ3vvvvvrggkjLDPCAADvvvqOFS3t/+wzfl0ssussgggkvPPAAjnvvqgPBCEVbxTTbDSggggggggggsvPvnqglrgPJNCwtrDcv6nxAgggggggggvPvvqggvgPfgOLR19giOHvwAgggjigggqktvvgglsA8ZhTjTzG4pRFjIBvjvvhiglrgtvjggooccDzDzTiVBntJBOvvvvnoguLMsssggggl+JjCSjZ42ZLmOBPvvvgggoKBCgggggglqrHz1aPj4qGOHINvvvqggsJPNAgggjjvvWQpU28DupGALDHvvvvgggAEPNhihvvvvvAhdi3M+tLDCFHvrnvgglOPPKOvvussggoEHBIHxPMCNFIlvvvggjHPMJMNviggmLGbt6cbDUAHELIvvvvggvPIADOPsoggpcEtVrG5kVIJICFvvvqggvPAAPCPggggggggkhGAFJICNAnvvuggjnKAFKFKKgggghjggguMKOOEoglvvognvvKAFKDFIgggggvvvgggokggggkvuglvsvIAFBPBAggggkvvvrgggggggghuggvqgvAAHFAHJggggtvvvugggggjihvognqgjqADKOGANggggoghqggghhnvvughnugnvgBOBJIDKqgggggkoggggvvvsognuggvsgHIHHHHAogggggggggggnvoggvvggnvgv/EAAL/2gAMAwEAAgADAAAAEKAAFKPIAEPPPKMMMPPDCIMIENPBKugnvvCBMJPCAAILPOMMIDHDHPEPIDHDnqkvvvKHLFPONLHPPPOEAAAEEMPPPJCPvqglvrHPPPPMNPOPPPKFPLAAAAAAAAFGvogggvFPPAMDDDCAOOIKMPPPAHKstvKHgggggsFPPDHPPPDrvttAiqlggkgphjHPigggggEPPOINDBvvsirikqtijnvhrjsnEiggggFPPAANOHvigPktuUCiuvvmtvvtspigggNPPAAKgntlAPtOBokCqjjhkvu0/LlrjgHKAAFqghqOABjaO6Lqnvrmvnmg1yNmsjOAAAHvqiqKAFATfvHa5vvvvrrgvvhMvvDCADvrjoLPimMYRXC8EUs8ussgtr8jgvEIjnvvqiKKypiUdDgP3Agwwggggw40wvPvnqglroLHvC9itPpQc3aBzzjv/wC//wDPISe+qCC+I2Mr1qxh+LMESAk3+++z3/8A/wB65r74IJZByBTX2kABX/o4L6zsPM8vvf8AqS+KeOCCi2IC+/vqCEBgVjeKn/8A+w43/qCAgs8zjjggjHOf6hP+RWoJtgr3/wCv779LYgIMNf776saNSTBdhfz5a5pJe/8Avf8A8zqmlFy1/wDLIMWnEtd7kuerpaLJ/wD/AP6+w4gstis9+xz3/wCwl+Z1wxHa4oZ7f+9/v8Nbr6ZSM89vPMMPFaZ7qubIL6aYtf8AzD//ADnqjqrN/wAsMNjzuzhmsENr4pboP+sMP/P6p6J7DvOMMOSNFJeVVN/Zrp7Ff/8ArX7D+q6C6CSDDDDDvP8Az0hoknprqI3/AP8AH/jPe2iWW2MnvC/f7z//AD7XnvlGww1/+3438/kglgnrN7jv/wD/AHPP/wD7733yx60+x/16zyngkrshmvvvv793+0//AP8A/wC886xx/wCPJb8L4IrKKq77774tPOMf7KLII4setqNpaI5bopKY7bb777577pb76oYZ7r67qZoap7L6aaY4qYpZ7b7765776oL77I56J4boLo6J4IIJ5z574IL777776IIL776L6L6J4L7/xAA9EQACAQMBBAQKCQMFAAAAAAABAgMABBEFEiFAURMxYZIGEBYgIiNBU4HBFBUwMlBxcpGxQkNiUmBwobL/2gAIAQIBAT8A/wCLccdjzz9gOF07QGubVppXKF19UPmanhkgleKRcMpwR4j9gODaORAhZCAwypI6xWmWv0u+ghP3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" alt="סאל מקורות מימון" class="site-logo" />
     <div class="badge">מבית בראון · פתרונות מימון מתקדמים</div>
     <h1>ברוכים הרוכשים<br><span>אדמה בארץ ישראל</span></h1>
     <p class="hero-sub">
@@ -502,7 +653,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- STATS -->
 <div class="stats-bar">
   <div class="stats-inner">
@@ -524,7 +675,7 @@
     </div>
   </div>
 </div>
-
+ 
 <!-- WHY US -->
 <section>
   <div class="container">
@@ -568,7 +719,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- TERMS -->
 <section style="padding-top: 0;">
   <div class="container">
@@ -602,7 +753,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- DOCUMENTS -->
 <section class="docs-section" id="documents">
   <div class="container">
@@ -610,14 +761,14 @@
     <h2 class="section-title">מה צריך להביא?</h2>
     <div class="gold-divider"></div>
     <p class="section-desc">בחרו את הקטגוריה הרלוונטית כדי לראות את המסמכים הנדרשים לבקשת המימון:</p>
-
+ 
     <div class="tabs">
-      <button class="tab active" onclick="showTab('sakhir')">👨‍💼 שכיר</button>
-      <button class="tab" onclick="showTab('gamlai')">🏖️ גמלאי</button>
-      <button class="tab" onclick="showTab('atzmai')">🏪 עצמאי</button>
-      <button class="tab" onclick="showTab('chevra')">🏢 חברה בע"מ</button>
+      <button class="tab active" onclick="showTab('sakhir', this)">שכיר</button>
+      <button class="tab" onclick="showTab('gamlai', this)">גמלאי</button>
+      <button class="tab" onclick="showTab('atzmai', this)">עצמאי</button>
+      <button class="tab" onclick="showTab('chevra', this)">חברה בע"מ</button>
     </div>
-
+ 
     <div id="sakhir" class="doc-panel active">
       <div class="doc-list">
         <div class="doc-item"><div class="doc-bullet"></div><div class="doc-text">תעודת זהות עם ספח פתוח</div></div>
@@ -627,7 +778,7 @@
         <div class="doc-item"><div class="doc-bullet"></div><div class="doc-text">שלושה תלושי משכורת ו/או אישורי הכנסה של שני בני הזוג</div></div>
       </div>
     </div>
-
+ 
     <div id="gamlai" class="doc-panel">
       <div class="doc-list">
         <div class="doc-item"><div class="doc-bullet"></div><div class="doc-text">תעודת זהות עם ספח פתוח</div></div>
@@ -638,7 +789,7 @@
         <div class="doc-item"><div class="doc-bullet"></div><div class="doc-text">אם אחד מבני הזוג עדיין עובד — שלושה תלושי משכורת</div></div>
       </div>
     </div>
-
+ 
     <div id="atzmai" class="doc-panel">
       <div class="doc-list">
         <div class="doc-item"><div class="doc-bullet"></div><div class="doc-text">תעודת זהות וספח פתוח, כולל תעודת זהות של האישה</div></div>
@@ -650,7 +801,7 @@
         <div class="doc-item"><div class="doc-bullet"></div><div class="doc-text">תעודת עוסק מורשה</div></div>
       </div>
     </div>
-
+ 
     <div id="chevra" class="doc-panel">
       <div class="doc-list">
         <div class="doc-item"><div class="doc-bullet"></div><div class="doc-text">תעודת התאגדות</div></div>
@@ -665,7 +816,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
   <div class="container">
@@ -673,59 +824,95 @@
     <h2 class="section-title">אורית לאה בראון<br>כאן בשבילכם</h2>
     <div class="gold-divider"></div>
     <p class="section-desc">מוכנים לצעד הבא? צרו קשר ונבנה יחד את תוכנית המימון המתאימה לכם.</p>
-
-    <div class="contact-grid">
-      <div class="contact-card" onclick="handleContact('phone','0548005717')" role="button" tabindex="0">
-        <div class="contact-icon">📱</div>
-        <div>
-          <div class="contact-label">טלפון נייד <span class="hint-label" id="hint-phone1"></span></div>
-          <div class="contact-value" style="direction:ltr;">054-800-5717</div>
-        </div>
-      </div>
-      <div class="contact-card" onclick="handleContact('phone','0377300330')" role="button" tabindex="0">
-        <div class="contact-icon">🏢</div>
-        <div>
-          <div class="contact-label">משרד <span class="hint-label" id="hint-phone2"></span></div>
-          <div class="contact-value" style="direction:ltr;">03-730-0330</div>
-        </div>
-      </div>
-      <div class="contact-card" onclick="handleContact('email','oritbaron2011@gmail.com')" role="button" tabindex="0">
-        <div class="contact-icon">✉️</div>
-        <div>
-          <div class="contact-label">אימייל <span class="hint-label" id="hint-email"></span></div>
-          <div class="contact-value" style="font-size:0.88rem;">oritbaron2011@gmail.com</div>
-        </div>
-      </div>
+ 
+    <div class="contact-grid" id="contact-grid">
+      <!-- Cards injected by JS to avoid mobile browser auto-link coloring -->
     </div>
     <div class="toast" id="toast"></div>
   </div>
 </section>
-
+ 
 <footer>
   <p>© 2025 <span>סאל מקורות מימון</span> מבית בראון · כל הזכויות שמורות · <span>בשורות טובות ובהצלחה! 🌟</span></p>
 </footer>
-
+ 
 <script>
   // ── TAB SWITCHER ──
-  function showTab(id) {
+  function showTab(id, btn) {
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     document.querySelectorAll('.doc-panel').forEach(p => p.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    event.target.classList.add('active');
+    btn.classList.add('active');
   }
-
+ 
   // ── MOBILE DETECTION ──
   const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
-
-  // ── HINT LABELS ──
-  window.addEventListener('DOMContentLoaded', () => {
-    const hintText = isMobile ? '(לחץ לחיוג)' : '(לחץ להעתקה)';
-    const emailHint = isMobile ? '(לחץ לשליחת מייל)' : '(לחץ להעתקה)';
-    document.querySelectorAll('[id^="hint-phone"]').forEach(el => el.textContent = hintText);
-    const eh = document.getElementById('hint-email');
-    if (eh) eh.textContent = emailHint;
+ 
+  // ── BUILD CONTACT CARDS ──
+  // Using JS to build cards so we can use <a> tags on mobile (for calling/emailing)
+  // but <div> on desktop — avoiding browser auto-coloring of tel/mailto links
+  const contacts = [
+    { icon: '📱', label: 'טלפון נייד', value: '054-800-5717', type: 'phone', raw: '0548005717' },
+    { icon: '🏢', label: 'משרד',       value: '03-730-0330',  type: 'phone', raw: '0377300330' },
+    { icon: '✉️', label: 'אימייל',     value: 'oritbaron2011@gmail.com', type: 'email', raw: 'oritbaron2011@gmail.com' },
+  ];
+ 
+  const hintText   = isMobile ? '(לחץ לחיוג)'        : '(לחץ להעתקה)';
+  const emailHint  = isMobile ? '(לחץ לשליחת מייל)'  : '(לחץ להעתקה)';
+ 
+  const grid = document.getElementById('contact-grid');
+ 
+  contacts.forEach(c => {
+    const hint = c.type === 'email' ? emailHint : hintText;
+ 
+    if (isMobile) {
+      // Real <a> tag for native dialing/mail — style forced to inherit
+      const href = c.type === 'phone' ? 'tel:' + c.raw : 'mailto:' + c.raw;
+      const a = document.createElement('a');
+      a.href = href;
+      a.className = 'contact-card';
+      a.style.cssText = 'color:inherit;text-decoration:none;-webkit-text-fill-color:inherit;';
+      a.innerHTML = `
+        <div class="contact-icon">${c.icon}</div>
+        <div>
+          <div class="contact-label">${c.label} <span class="hint-label">${hint}</span></div>
+          <div class="contact-value" style="direction:ltr;">${c.value}</div>
+        </div>`;
+      grid.appendChild(a);
+    } else {
+      // Desktop: plain div, click copies
+      const div = document.createElement('div');
+      div.className = 'contact-card';
+      div.setAttribute('role', 'button');
+      div.setAttribute('tabindex', '0');
+      div.innerHTML = `
+        <div class="contact-icon">${c.icon}</div>
+        <div>
+          <div class="contact-label">${c.label} <span class="hint-label">${hint}</span></div>
+          <div class="contact-value" style="direction:ltr;">${c.value}</div>
+        </div>`;
+      div.addEventListener('click', () => copyToClipboard(c.raw, c.type));
+      div.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') copyToClipboard(c.raw, c.type); });
+      grid.appendChild(div);
+    }
   });
-
+ 
+  // ── COPY TO CLIPBOARD (desktop) ──
+  function copyToClipboard(value, type) {
+    const label = type === 'phone' ? 'מספר הטלפון הועתק! 📋' : 'האימייל הועתק! 📋';
+    navigator.clipboard.writeText(value)
+      .then(() => showToast(label))
+      .catch(() => {
+        const el = document.createElement('textarea');
+        el.value = value;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        showToast(label);
+      });
+  }
+ 
   // ── TOAST ──
   function showToast(msg) {
     const t = document.getElementById('toast');
@@ -733,35 +920,7 @@
     t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 2500);
   }
-
-  // ── SMART CONTACT HANDLER ──
-  function handleContact(type, value) {
-    if (isMobile) {
-      if (type === 'phone') {
-        window.location.href = 'tel:' + value;
-      } else {
-        window.location.href = 'mailto:' + value;
-      }
-    } else {
-      // Desktop: copy to clipboard
-      navigator.clipboard.writeText(type === 'phone' ? value.replace(/^0/, '0') : value)
-        .then(() => {
-          const label = type === 'phone' ? 'מספר הטלפון הועתק! 📋' : 'האימייל הועתק! 📋';
-          showToast(label);
-        })
-        .catch(() => {
-          // Fallback for older browsers
-          const el = document.createElement('textarea');
-          el.value = value;
-          document.body.appendChild(el);
-          el.select();
-          document.execCommand('copy');
-          document.body.removeChild(el);
-          showToast(type === 'phone' ? 'מספר הטלפון הועתק! 📋' : 'האימייל הועתק! 📋');
-        });
-    }
-  }
-
+ 
   // ── SMOOTH SCROLL ──
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
@@ -770,3 +929,8 @@
     });
   });
 </script>
+</body>
+</html>
+ 
+
+
